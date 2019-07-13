@@ -1,0 +1,30 @@
+---
+# defaults variables for cluster
+cluster_templates:
+  - backend
+  - cluster
+  - gcp
+  - network
+
+project_id: 
+product: 
+owner: 
+state: in_use
+maintainer: 
+region: 
+location: 
+cluster_name: 
+vpc_name: 
+subnet_name: 
+node_count: 3
+min_node_count: 3
+max_node_count: 5
+auto_upgrade: "true"
+env: production
+machine_type: n1-standard-1
+ip_cidr_range: 10.0.0.0/18
+private_ip_google_access: "true"
+node_pool_name: default-pool
+state_file_folder: terraform/state
+state_file_bucket: cluster-tf-state
+k8s_cluster_dir: 

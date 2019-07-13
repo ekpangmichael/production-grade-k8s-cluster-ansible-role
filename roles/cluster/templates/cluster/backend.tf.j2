@@ -1,0 +1,6 @@
+terraform {
+  backend "gcs" {
+    bucket  = "{{state_file_bucket}}"
+    prefix  = "{{state_file_folder}}"
+  }
+}

@@ -1,0 +1,9 @@
+#Runs terraform plan
+- name: Terraform plan
+  terraform:
+    project_path: "{{k8s_cluster_dir}}"
+    plan_file: "{{k8s_cluster_dir}}/tfplan"
+    force_init: true
+    lock: true
+    state: planned
+  tags: [create]

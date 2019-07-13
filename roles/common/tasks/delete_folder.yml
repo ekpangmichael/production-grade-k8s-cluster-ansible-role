@@ -1,0 +1,7 @@
+#Deletes a folder inside the files directory
+
+- name: Delete the terraform files
+  file:
+    path: "{{playbook_dir}}/roles/cluster/files/{{folder_name}}"
+    state: absent
+  tags: [clean]

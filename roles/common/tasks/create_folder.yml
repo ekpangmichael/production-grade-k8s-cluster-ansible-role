@@ -1,0 +1,7 @@
+#Creates a folder inside the files directory
+- name: Create Folder
+  file: 
+   path: "{{playbook_dir}}/roles/cluster/files/{{folder_name}}"
+   recurse: yes
+   state: directory
+  tags: [create]

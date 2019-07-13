@@ -1,0 +1,38 @@
+resource "google_container_cluster" "{{cluster_name}}" {
+  name               = "{{cluster_name}}-{{env}}"
+  location               = "{{location}}"
+  network = "${google_compute_network.{{vpc_name}}.self_link}"
+  subnetwork = "${google_compute_subnetwork.{{subnet_name}}.self_link}"
+
+  resource_labels = {
+    product = "{{product}}"
+    env = "{{env}}"
+    owner = "{{owner}}"
+    maintainer = "{{maintainer}}"
+    state = "{{state}}"
+  }
+  node_pool = [{
+    name = "{{node_pool_name}}"
+    node_count = "{{node_count}}"
+
+    autoscaling = {
+      min_node_count = "{{min_node_count}}"
+      max_node_count = "{{max_node_count}}"
+    }
+
+    node_config = {
+    machine_type = "{{machine_type}}"
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/devstorage.read_only",
+      "https://www.googleapis.com/auth/logging.write",
+      "https://www.googleapis.com/auth/monitoring.write",
+      "https://www.googleapis.com/auth/service.management.readonly",
+      "https://www.googleapis.com/auth/servicecontrol",
+      "https://www.googleapis.com/auth/trace.append"
+    ]
+  }
+    management = {
+      auto_upgrade = "{{auto_upgrade}}"
+    }
+  }]
+}

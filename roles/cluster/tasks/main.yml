@@ -1,0 +1,22 @@
+---
+# This task contains all the tasks that creates and deletes a cluster
+- name: create folder
+  include_role:
+    name: common
+    tasks_from: create_folder.yml
+  tags: [create]
+
+- include_tasks: generate_terraform_template.yml 
+  tags: [create]
+- include_tasks: terraform_plan.yml
+  tags: [create]
+- include_tasks: terraform_apply.yml
+  tags: [create]
+- include_tasks: terraform_destroy.yml
+  tags: [destroy]
+
+- name: delete folder
+  include_role:
+    name: common
+    tasks_from: delete_folder.yml
+  tags: [clean]

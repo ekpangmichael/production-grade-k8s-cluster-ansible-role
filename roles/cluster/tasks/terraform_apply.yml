@@ -1,0 +1,7 @@
+#Applies the terraform files
+- name: Terraform apply
+  terraform:
+    project_path: "{{k8s_cluster_dir}}"
+    lock: true
+    state: present
+  tags: [create]

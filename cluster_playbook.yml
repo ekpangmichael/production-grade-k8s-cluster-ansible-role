@@ -1,0 +1,6 @@
+#This playbook creates a cluster
+---
+- hosts: localhost
+  gather_facts: false
+  roles:
+    - cluster

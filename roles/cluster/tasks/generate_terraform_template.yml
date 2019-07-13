@@ -1,0 +1,8 @@
+#Generate terraform files from templates files
+- name: generate terraform files from templates
+  with_items: '{{ cluster_templates }}'
+  template:
+    src: cluster/{{ item }}.tf.j2
+    dest: '{{ k8s_cluster_dir }}/{{ item }}.tf'
+    mode: 777
+  tags: [create]
