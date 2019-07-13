@@ -2,7 +2,7 @@
   
   
 
-# Production grade Kubernets  cluster Ansible  role
+# Production grade Kubernetes  cluster Ansible  role
 
   
   
